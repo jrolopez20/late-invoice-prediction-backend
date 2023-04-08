@@ -18,9 +18,8 @@ def predict_home_price():
     
     result = predictor.predict(data)
 
-    response = jsonify(result)
+    response = jsonify(result.tolist())
     response.headers.add("Access-Control-Allow-Origin", "*")
-    # response.status_code(200)
 
     return response
 

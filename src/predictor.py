@@ -1,21 +1,22 @@
-import json
+import pandas as pd
+import joblib
+
 
 def predict(items):
-    result = items
+    with open("./src/model/model.joblib", "rb") as f:
+        predictor = joblib.load(f)
+
+    # TODO BEGIN Just for testing purpose
+    df = pd.read_csv("./src/model/test.csv")
+
+    # Remove features unseen at fit time:
+    df.drop(
+        ["cliente_sector", "cliente_regimen_fiscal", "PaidTime"], axis=1, inplace=True
+    )
+
+    df_predict = df.iloc[0:1]
+    # END testing code
+
+    result = predictor.predict(df_predict)
+    
     return result
-    # endpoint_name = 'sklearn-local-ep2022-10-31-18-30-39'
-    # runtime_client = boto3.client('sagemaker-runtime')
-    
-    # request_body = {"Input": items}
-    
-    # data = json.loads(json.dumps(request_body))
-    # payload = json.dumps(data)
-    
-    # response = runtime_client.invoke_endpoint(
-    #     EndpointName=endpoint_name,
-    #     ContentType="application/json",
-    #     Body=payload)
-    # result = json.loads(response['Body'].read().decode())
-    
-    # return result['Output']
-    

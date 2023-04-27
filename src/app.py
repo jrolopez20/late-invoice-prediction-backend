@@ -17,11 +17,12 @@ def predict_home_price():
 
     data = transformer.transform(params)
     
-    result = predictor.predict(data)
+    response = predictor.predict(data)
     
-    response = {
-        "prediction":  result.tolist()
-    }
+    # response = {
+    #     "prediction":  result.tolist()
+    # }
+    # response.
     # response = jsonify(result.tolist())
 
     return response

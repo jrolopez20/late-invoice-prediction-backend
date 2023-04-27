@@ -12,7 +12,7 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 @cross_origin()
-def predict_home_price():
+def predict_late_invoice():
     params = request.get_json(force=True)
 
     data = transformer.transform(params)

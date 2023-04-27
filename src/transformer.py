@@ -4,12 +4,6 @@ import csv
 from datetime import datetime
 
 
-# def transform(data):
-#     print('--->', data)
-#     result = [1, 4564, 4, 0]
-#     return result
-
-
 def from_dob_to_age(born):
     now = pd.Timestamp("now")
     return now.year - born.year - ((now.month, now.day) < (born.month, born.day))
@@ -39,6 +33,15 @@ def transform(data):
     # Transform dates column to proper format
     df_input["fecha_inicio"] = pd.to_datetime(df_input["fecha_inicio"])
     df_input["fecha_fin"] = pd.to_datetime(df_input["fecha_fin"])
+
+    df_input = df_input.astype({
+        'porcentaje_adelanto': float,
+        'factura_importe': float,
+        'linea_limite': float,        
+        'pagador_rfc': str,
+    })     
+    
+    print(df_input.info())
 
     # Build feature Payment term
     df_input["payment_term"] = df_input.apply(calc_payment_term, axis=1)

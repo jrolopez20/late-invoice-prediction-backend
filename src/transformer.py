@@ -34,13 +34,15 @@ def transform(data):
     df_input["fecha_inicio"] = pd.to_datetime(df_input["fecha_inicio"])
     df_input["fecha_fin"] = pd.to_datetime(df_input["fecha_fin"])
 
-    df_input = df_input.astype({
-        'porcentaje_adelanto': float,
-        'factura_importe': float,
-        'linea_limite': float,        
-        'pagador_rfc': str,
-    })     
-    
+    df_input = df_input.astype(
+        {
+            "porcentaje_adelanto": float,
+            "factura_importe": float,
+            "linea_limite": float,
+            "pagador_rfc": str,
+        }
+    )
+
     print(df_input.info())
 
     # Build feature Payment term
@@ -240,14 +242,7 @@ def transform(data):
 
     # Remove unnecesary columns for prediction
     df_input.drop(
-        [
-            "fecha_nacimiento",
-            "fecha_inicio",
-            "fecha_fin",
-            "pagador_rfc",
-            "cliente_sector",
-            "cliente_regimen_fiscal",
-        ],
+        ["fecha_nacimiento", "fecha_inicio", "fecha_fin", "pagador_rfc"],
         axis=1,
         inplace=True,
     )

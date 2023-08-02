@@ -1,4 +1,5 @@
 .vscode
 env
+venv
 /src/__pycache__
 /src/model/model.joblib

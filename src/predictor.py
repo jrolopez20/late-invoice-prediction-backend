@@ -24,8 +24,8 @@ def predict(df_input):
     df_input = df_input[predictor.feature_names_]
     prediction = predictor.predict(df_input)
 
-    # target_names = np.array(['before time', 'on time', '1-7 days late', '8-21 days late', 'More than 21 days late'])
-    target_names = np.array([1, 2, 4, 5, 3])
+    target_names = np.array(['before time', 'on time', '1-7 days late', '8-21 days late', 'More than 21 days late'])
+    # target_names = np.array([1, 2, 4, 5, 3])
 
     X_train = pd.read_csv("./src/model/all.csv", sep=",")
 

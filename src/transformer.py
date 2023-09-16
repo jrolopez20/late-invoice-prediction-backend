@@ -16,7 +16,7 @@ def calc_payment_term(row):
 def transform(data):
     # Readind data
     df = pd.read_csv(
-        "./src/model/all.csv",
+        "./src/resources/all.csv",
         sep=",",
         parse_dates=["credito_fecha_inicio", "credito_fecha_fin", "fecha_pago"],
     )

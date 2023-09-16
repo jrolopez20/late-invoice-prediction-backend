@@ -1,5 +1,8 @@
 .vscode
+.env
 env
 venv
 /src/__pycache__
-/src/model/model.joblib
+/src/resources/model.joblib
+*.pyc
+.DS_Store

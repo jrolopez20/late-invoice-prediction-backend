@@ -6,11 +6,11 @@ import lime.lime_tabular
 
 
 def predict(df_input):
-    with open("./src/model/model.joblib", "rb") as f:
+    with open("./src/resources/model.joblib", "rb") as f:
         predictor = joblib.load(f)
 
     # BEGIN TESTING CODE
-    # df = pd.read_csv("./src/model/test.csv")
+    # df = pd.read_csv("./src/resources/test.csv")
 
     # Remove features unseen at fit time:
     # df.drop(
@@ -27,7 +27,7 @@ def predict(df_input):
     target_names = np.array(['before time', 'on time', '1-7 days late', '8-21 days late', 'More than 21 days late'])
     # target_names = np.array([1, 2, 3, 4, 5])
 
-    X_train = pd.read_csv("./src/model/all.csv", sep=",")
+    X_train = pd.read_csv("./src/resources/all.csv", sep=",")
 
     # Remove unnecesary columns
     X_train.drop(

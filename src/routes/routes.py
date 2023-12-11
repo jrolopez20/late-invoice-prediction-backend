@@ -33,7 +33,7 @@ def predict_late_invoice():
 
     result = predictor.predict(data)
 
-    log = InvoicePredictionLog(params['folio'], params, result['prediction'][0])
+    log = InvoicePredictionLog(params['factoring_document_id'], params, result['prediction'][0])
     db.session.add(log)
     db.session.commit()
 
